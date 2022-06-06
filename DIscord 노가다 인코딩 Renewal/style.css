@@ -1,0 +1,174 @@
+/* 기본 css */
+@charset "utf-8";
+@font-face {
+    font-family : 'Do Hyeon';
+    src : url("media/DoHyeon-Regular.ttf");
+}
+
+* {
+    margin : 0px;
+    padding : 0px;
+
+    font-family : "DO Hyeon", monospace;
+}
+
+body {
+    width : 100vw;
+    height : 100vh;
+
+    display : flex;
+    flex-direction : column;
+    /*justify-content : center;*/
+    /*align-items : center;*/
+
+    background : linear-gradient(180deg, #510163, #c70046);
+
+    overflow : hidden;
+}
+
+body > .headerBox {
+    /*border : 2px solid red;*/
+
+    width : 100vw;
+    height : 100px;
+
+    display : flex;
+    flex-direction : row;
+}
+
+body > .contentBox {
+    width : 100vw;
+    height : 80%;
+
+    display : flex;
+    flex-direction : row;
+
+    margin-top : 40px;
+}
+
+body > .footerBox {
+    width : 100vw;
+    height : 20%;
+
+    display : flex;
+    flex-direction : row;
+}
+
+
+
+
+body > .headerBox > .mainTitle {
+    width : 100%;
+    height : 100%;
+
+    display : flex;
+    flex-direction : row;
+    justify-content : center;
+    align-items : center;
+
+    font-size : 44px;
+
+    text-shadow :
+        -2px 1px 0px #ba00c7,
+        0px 0px 8px #441366,
+        1px 2px 0px #0303a8,
+        -2px -1px 0px #ff002b;
+
+    background : linear-gradient(0deg, #954aff, #ff4a50);
+    box-shadow : 0px 0px 50px #180024;
+
+    border-radius : 0px 0px 15px 15px;
+}
+
+
+
+
+.encodingSection {
+    width : 100vw;
+    height : 100%;
+
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+
+}
+
+.encodingSection .input textarea, .encodingSection .output textarea {
+
+    width : 180px;
+    height : 100px;
+
+    margin : 0px;
+    padding : 8px;
+
+    box-shadow : 
+        4px 4px 2px #c9123d,
+        2px 2px 20px #230040;
+
+    background : linear-gradient(45deg, #c89cff, #ffb8db);
+
+    border-radius : 10px;
+
+    font-size : 18px;
+
+    transition : 
+        width .2s,
+        height .2s,
+        box-shadow 0.2s;
+}
+
+.encodingSection .output textarea {
+    width : 200px;
+    height : 100px;
+
+    box-shadow :
+        4px 4px 2px #393ff7,
+        2px 2px 20px #230040;
+}
+.encodingSection .input textarea:active {
+    box-shadow : 0px 0px 10px red;
+}
+
+
+.encodingSection .convertBlock {
+    width : 100vw;
+    height : 50px;
+
+    display : flex;
+    flex-direction : row;
+    align-items : center;
+    justify-content : center;
+}
+
+.encodingSection .convertBlock > button {
+    box-sizing : 30px;
+    padding : 2px;
+
+    background : #c89cff;
+
+    border : 2px solid #c9123d;
+    border-radius : 5px;
+
+    transition :
+        background-color 0.3s,
+        border 0.3s;
+}
+.encodingSection .convertBlock > button:active {
+    background-color : #ac82ff;
+
+    border : 2px solid #230040;
+}
+
+
+#WITH {
+    width : 100%;
+    height : 100%;
+
+    padding : 10px;
+    font-size : 18px;
+
+    color : #b8fffd;
+    text-shadow :
+        -2px -1px 10px #ff002f,
+        2px 1px 0px #4800ff;
+}
