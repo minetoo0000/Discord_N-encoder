@@ -1,3 +1,4 @@
+/* 기본 css */
 @charset "utf-8";
 @font-face {
     font-family : 'Do Hyeon';
@@ -20,7 +21,7 @@ body {
     /*justify-content : center;*/
     /*align-items : center;*/
 
-    background : linear-gradient(180deg, #fc03e8, #c70046);
+    background : linear-gradient(180deg, #360042, 70%, #c70046);
 
     overflow : hidden;
 }
