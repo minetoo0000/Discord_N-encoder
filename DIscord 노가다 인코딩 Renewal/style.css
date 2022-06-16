@@ -10,6 +10,8 @@
     padding : 0px;
 
     font-family : "DO Hyeon", monospace;
+    
+    box-sizing : border-box;
 }
 
 body {
@@ -23,14 +25,14 @@ body {
 
     background : linear-gradient(180deg, #360042, 70%, #c70046);
 
-    overflow : hidden;
+    /*overflow : hidden;*/
 }
 
 body > .headerBox {
     /*border : 2px solid red;*/
 
     width : 100vw;
-    height : 100px;
+    height : 10%;
 
     display : flex;
     flex-direction : row;
@@ -38,7 +40,7 @@ body > .headerBox {
 
 body > .contentBox {
     width : 100vw;
-    height : 80%;
+    height : 70%;
 
     display : flex;
     flex-direction : row;
