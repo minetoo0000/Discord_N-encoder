@@ -1,7 +1,7 @@
 /* 기본 css */
 @charset "utf-8";
 @font-face {
-    //font-family : 'Do Hyeon'; /*ㅁ자자ㅏㅈ*/
+    font-family : 'Do Hyeon';
     src : url("media/DoHyeon-Regular.ttf");
 }
 
@@ -9,7 +9,7 @@
     margin : 0px;
     padding : 0px;
 
-    //font-family : "DO Hyeon", monospace;
+    font-family : "DO Hyeon", monospace;
     
     box-sizing : border-box;
 }
