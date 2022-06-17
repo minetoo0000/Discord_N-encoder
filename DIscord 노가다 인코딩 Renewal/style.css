@@ -61,7 +61,7 @@ body > .footerBox {
 
 body > .headerBox > .mainTitle {
     width : 100%;
-    height : 100%;
+    height : 100vh; /*여기 테스트 중!!*/
 
     display : flex;
     flex-direction : row;
