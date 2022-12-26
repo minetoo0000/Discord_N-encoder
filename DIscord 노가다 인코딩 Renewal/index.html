@@ -22,6 +22,185 @@
 		<script src="https://raw.githubusercontent.com/minetoo0000/Discord_N-encoder/main/DIscord%20%EB%85%B8%EA%B0%80%EB%8B%A4%20%EC%9D%B8%EC%BD%94%EB%94%A9%20Renewal/js.js"></script>
         
     </head>
+
+	<style>
+		/* 기본 css */
+@charset "utf-8";
+@font-face {
+    font-family : 'Do Hyeon';
+    src : url("media/DoHyeon-Regular.ttf");
+}
+
+* {
+    margin : 0px;
+    padding : 0px;
+
+    font-family : "DO Hyeon", monospace;
+    
+    box-sizing : border-box;
+}
+
+body {
+    width : 100vw;
+    height : 100vh;
+
+    display : flex;
+    flex-direction : column;
+    /*justify-content : center;*/
+    /*align-items : center;*/
+
+    background : linear-gradient(180deg, #360042, 70%, #c70046);
+
+    /*overflow : hidden;*/
+}
+
+body > .headerBox {
+    /*border : 2px solid red;*/
+
+    width : 100vw;
+    height : 100px;
+
+    display : flex;
+    flex-direction : row;
+}
+
+body > .contentBox {
+    width : 100vw;
+    height : 80%;
+
+    display : flex;
+    flex-direction : row;
+
+    margin-top : 40px;
+}
+
+body > .footerBox {
+    width : 100vw;
+    height : 20%;
+
+    display : flex;
+    flex-direction : row;
+}
+
+
+
+
+body > .headerBox > .mainTitle {
+    width : 100%;
+    height : 100%;
+
+    display : flex;
+    flex-direction : row;
+    justify-content : center;
+    align-items : center;
+
+    font-size : 44px;
+
+    text-shadow :
+        -2px 1px 0px #ba00c7,
+        0px 0px 8px #441366,
+        1px 2px 0px #0303a8,
+        -2px -1px 0px #ff002b;
+
+    background : linear-gradient(0deg, #954aff, #ff4a50);
+    box-shadow : 0px 0px 50px #180024;
+
+    border-radius : 0px 0px 15px 15px;
+}
+
+
+
+
+.encodingSection {
+    width : 100vw;
+    height : 100%;
+
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+
+}
+
+.encodingSection .input textarea, .encodingSection .output textarea {
+
+    width : 180px;
+    height : 100px;
+
+    margin : 0px;
+    padding : 8px;
+
+    box-shadow : 
+        4px 4px 2px #c9123d,
+        2px 2px 20px #230040;
+
+    background : linear-gradient(45deg, #c89cff, #ffb8db);
+
+    border-radius : 10px;
+
+    font-size : 18px;
+
+    transition : 
+        width .2s,
+        height .2s,
+        box-shadow 0.2s;
+}
+
+.encodingSection .output textarea {
+    width : 200px;
+    height : 100px;
+
+    box-shadow :
+        4px 4px 2px #393ff7,
+        2px 2px 20px #230040;
+}
+.encodingSection .input textarea:active {
+    box-shadow : 0px 0px 10px red;
+}
+
+
+.encodingSection .convertBlock {
+    width : 100vw;
+    height : 50px;
+
+    display : flex;
+    flex-direction : row;
+    align-items : center;
+    justify-content : center;
+}
+
+.encodingSection .convertBlock > button {
+    box-sizing : 30px;
+    padding : 2px;
+
+    background : #c89cff;
+
+    border : 2px solid #c9123d;
+    border-radius : 5px;
+
+    transition :
+        background-color 0.3s,
+        border 0.3s;
+}
+.encodingSection .convertBlock > button:active {
+    background-color : #ac82ff;
+
+    border : 2px solid #230040;
+}
+
+
+#WITH {
+    width : 100%;
+    height : 100%;
+
+    padding : 10px;
+    font-size : 18px;
+
+    color : #b8fffd;
+    text-shadow :
+        -2px -1px 10px #ff002f,
+        2px 1px 0px #4800ff;
+}
+	</style>
     
     <body>
         
@@ -65,5 +244,37 @@
         </div>
         
     </body>
+
+	<script>
+	    let input_text = document.querySelector("#inputText");  // 디코더 입력칸 선택자
+let output_text = document.querySelector("#outputText");  // 디코더 출력 선택자
+let encode_button = document.querySelector("#encodeButton");  // 디코더 버튼 선택자
+/*위 3개의 선택자들은 아직 해당하는 DOM이 로드되지 않았기 때문에 3개 각각에 null이 들어간다*/
+/* 전역으로 사용하기 위해 번거롭지만 이리 코드를 짰다. */
+
+
+
+addEventListener("DOMContentLoaded", function() {    
+    input_text = document.querySelector("#inputText");  // 디코더 입력칸 선택자
+    output_text = document.querySelector("#outputText");  // 디코더 출력 선택자
+    encode_button = document.querySelector("#encodeButton");  // 디코더 버튼 선택자
+    /*DOM이 모두 로드되고 난 후 다시 선택자를 선택한다. 여기에선 정상적으로 원하는 쿼리가 선택된다.*/
+    
+    //console.log(`뷰페이지 로드 완료 및 선택자 덮어쓰기 완료.`);
+    
+    encodeText();
+    encode_button.addEventListener("click", function() {encodeText();});
+    input_text.addEventListener("keypress", function() {encodeText();});
+    input_text.addEventListener("keyup", function() {encodeText();});
+});
+
+
+function encodeText() {  // 인코딩 함수.
+    if (input_text.value != "") {  // 문자 사이사이에 스포일러 구문 삽입. 
+        let result_text = "||" + (input_text.value.split("").join("||||")) + "||";  // 핵심 인코딩 코드. Ascody94님이 작성해주신 부분.
+        output_text.value = result_text;
+    } else output_text.value = "";  // 아무 문자도 없을 경우 예외처리.
+}
+	</script>
     
 </html>
