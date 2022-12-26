@@ -23,7 +23,7 @@ addEventListener("DOMContentLoaded", function() {
 
 function encodeText() {  // 인코딩 함수.
     if (input_text.value != "") {  // 문자 사이사이에 스포일러 구문 삽입. 
-        let result_text = "||" + (input_text.value.split("").join("||||")) + "||";
+        let result_text = "||" + (input_text.value.split("").join("||||")) + "||";  // 핵심 인코딩 코드. Ascody94님이 작성해주신 부분.
         output_text.value = result_text;
     } else output_text.value = "";  // 아무 문자도 없을 경우 예외처리.
 }
